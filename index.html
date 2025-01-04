@@ -4,16 +4,17 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculator</title>
+    <title>Calculator Pro</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
+      <h1 class="heading">Calculator Pro</h1>
       <input type="text" class="display" id="display" readonly />
 
       <div class="buttons">
-        <button class="operator ac" data-value="AC">AC</button>
-        <button class="operator del" data-value="DEL">DEL</button>
+        <button class="ac" data-value="AC">AC</button>
+        <button class="del" data-value="DEL">DEL</button>
         <button class="operator" data-value="%">%</button>
         <button class="operator" data-value="/">÷</button>
 
@@ -35,8 +36,15 @@
         <button data-value="0">0</button>
         <button data-value="00">00</button>
         <button data-value=".">.</button>
-        <button class="operator equals" data-value="=">=</button>
+        <button class="equals" data-value="=">=</button>
       </div>
+
+      <footer>
+        <p>Developed by Afraar</p>
+        <a href="https://github.com/Afraar99" target="_blank">
+          <img src="./assets/github.png" alt="GitHub" class="github-logo" />
+        </a>
+      </footer>
     </div>
 
     <script src="script.js"></script>
