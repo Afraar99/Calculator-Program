@@ -15,7 +15,7 @@ body {
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   font-size: 16px;
   overflow: hidden;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
   background-color: #f4f4f9;
   display: flex;
   justify-content: center;
@@ -209,12 +209,11 @@ footer p {
 }
 
 .github-logo {
-  width: 20px;
-  height: 20px;
+  width: 30px;
+  height: auto; /* Maintain aspect ratio */
   margin-left: 10px;
   vertical-align: middle;
   transition: transform 0.3s ease;
-  width: 30px;
   margin-top: 10px;
 }
 
