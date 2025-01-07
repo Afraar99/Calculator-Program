@@ -15,6 +15,13 @@ body {
   background: linear-gradient(135deg, #6a11cb, #2575fc);
   font-size: 16px;
   overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f4f9;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
 }
 
 /* Container Styling */
@@ -28,6 +35,11 @@ body {
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
   border: 1px solid rgba(255, 255, 255, 0.3);
   text-align: center;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 /* Heading Styling */
@@ -37,6 +49,9 @@ body {
   margin-bottom: 20px;
   font-weight: 600;
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #333333;
 }
 
 /* Display Styling */
@@ -50,10 +65,18 @@ body {
   border-radius: 8px;
   margin-bottom: 15px;
   background: rgba(255, 255, 255, 0.25);
-  color: #ffffff;
+  color: #333333;
   box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
   pointer-events: none;
   transition: all 0.3s ease;
+  width: 100%;
+  padding: 15px;
+  font-size: 1.5em;
+  margin-bottom: 20px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  text-align: right;
+  background-color: #f9f9f9;
 }
 
 /* Buttons Grid */
@@ -62,6 +85,9 @@ body {
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
   transition: all 0.3s ease;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
 }
 
 /* Button Styling */
@@ -72,8 +98,18 @@ body {
   font-size: 22px;
   cursor: pointer;
   background: rgba(255, 255, 255, 0.2);
-  color: #ffffff;
+  color: #333333;
   transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button {
+  padding: 20px;
+  font-size: 1.2em;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  color: #333333;
 }
 
 /* Button Hover & Active Effects */
@@ -81,6 +117,10 @@ body {
   background: rgba(255, 255, 255, 0.4);
   transform: scale(1.05);
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background-color: #e0e0e0;
 }
 
 .buttons button:active {
@@ -115,6 +155,15 @@ body {
   background: #303f9f;
 }
 
+button.operator {
+  background-color: #ff9500;
+  color: #ffffff;
+}
+
+button.operator:hover {
+  background-color: #e08900;
+}
+
 .equals {
   background: #43a047; /* Green */
   color: white;
@@ -122,6 +171,15 @@ body {
 
 .equals:hover {
   background: #388e3c;
+}
+
+button.equals {
+  background-color: #34c759;
+  color: #ffffff;
+}
+
+button.equals:hover {
+  background-color: #2fa94f;
 }
 
 /* Footer Styling */
@@ -132,6 +190,7 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 20px;
 }
 
 footer a {
@@ -144,12 +203,19 @@ footer a:hover {
   text-decoration: underline;
 }
 
+footer p {
+  margin: 0;
+  color: #666666;
+}
+
 .github-logo {
   width: 20px;
   height: 20px;
   margin-left: 10px;
   vertical-align: middle;
   transition: transform 0.3s ease;
+  width: 30px;
+  margin-top: 10px;
 }
 
 .github-logo:hover {
