@@ -129,21 +129,21 @@ button:hover {
 
 /* Specific Button Styles */
 .ac {
-  background: #e53935; /* Red */
+  background: #ff6b6b; /* Light Red */
   color: white;
 }
 
 .ac:hover {
-  background: #d32f2f;
+  background: #ff4c4c; /* Darker Red */
 }
 
 .del {
-  background: #fb8c00; /* Orange */
+  background: #ffa726; /* Light Orange */
   color: white;
 }
 
 .del:hover {
-  background: #f57c00;
+  background: #ff9800; /* Darker Orange */
 }
 
 .operator {
