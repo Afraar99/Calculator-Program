@@ -30,11 +30,17 @@ const calculate = (btnValue) => {
     if (output === "" && specialChars.includes(btnValue)) return;
     // Prevent consecutive operators like "++" or "**"
     if (specialChars.includes(btnValue) && specialChars.includes(output.slice(-1))) return;
-    // If last result exists and a number or operator is pressed, start a new operation
+    // If last result exists and a number or operator is pressed, continue the operation
     if (resetOutput && !specialChars.includes(btnValue)) {
-      output = btnValue;
+      output = lastResult + btnValue;
       resetOutput = false;
     } else if (resetOutput && specialChars.includes(btnValue)) {
+      output = lastResult + btnValue;
+      resetOutput = false;
+    } else if (resetOutput && output === lastResult) {
+      output += btnValue;
+      resetOutput = false;
+    } else if (lastResult !== null && specialChars.includes(btnValue)) {
       output = lastResult + btnValue;
       resetOutput = false;
     } else {
