@@ -3,52 +3,76 @@ const buttons = document.querySelectorAll("button");
 const specialChars = ["%", "*", "/", "-", "+", "="];
 let output = "";
 let lastResult = null;
-let resetOutput = false;
+let lastOperator = null;
+let newNumber = false;
 
-// Function to calculate based on button clicked.
 const calculate = (btnValue) => {
   display.focus();
 
-  if (btnValue === "=" && output !== "") {
-    try {
-      // If output has '%', replace with '/100' before evaluating.
-      output = eval(output.replace("%", "/100"));
-      lastResult = output;
-      resetOutput = true;
-    } catch (error) {
-      output = "Error";
-    }
-  } else if (btnValue === "AC") {
+  if (btnValue === "AC") {
+    // Complete reset
     output = "";
     lastResult = null;
-    resetOutput = false;
-  } else if (btnValue === "DEL") {
-    // If DEL button is clicked, remove the last character from the output.
-    output = output.toString().slice(0, -1);
-  } else {
-    // If output is empty and button is specialChars then return
-    if (output === "" && specialChars.includes(btnValue)) return;
-    // Prevent consecutive operators like "++" or "**"
-    if (specialChars.includes(btnValue) && specialChars.includes(output.slice(-1))) return;
-    // If last result exists and a number or operator is pressed, continue the operation
-    if (resetOutput && !specialChars.includes(btnValue)) {
-      output = lastResult + btnValue;
-      resetOutput = false;
-    } else if (resetOutput && specialChars.includes(btnValue)) {
-      output = lastResult + btnValue;
-      resetOutput = false;
-    } else if (resetOutput && output === lastResult) {
-      output += btnValue;
-      resetOutput = false;
-    } else if (lastResult !== null && specialChars.includes(btnValue)) {
-      output = lastResult + btnValue;
-      resetOutput = false;
+    lastOperator = null;
+    newNumber = false;
+    display.value = "0";
+    return;
+  }
+
+  if (btnValue === "DEL") {
+    // Simple character deletion
+    if (output === "Error") {
+      output = "";
+    } else if (output.length > 0) {
+      output = output.slice(0, -1);
+    }
+    // Show 0 when everything is deleted
+    display.value = output || "0";
+    return;
+  }
+
+  // Handle numbers
+  if (!specialChars.includes(btnValue)) {
+    if (newNumber || output === "Error" || output === "0") {
+      output = btnValue;
+      newNumber = false;
     } else {
       output += btnValue;
     }
   }
+  // Handle operators and other special functions
+  else if (btnValue !== "AC" && btnValue !== "DEL") {
+    switch (btnValue) {
+      case "=":
+        if (output !== "") {
+          try {
+            output = output.replace(/(\d+)%/g, "($1/100)");
+            lastResult = eval(output);
+            output = lastResult.toString();
+            newNumber = true;
+          } catch (error) {
+            output = "Error";
+            lastResult = null;
+          }
+        }
+        break;
 
-  display.value = output;
+      default:
+        if (output === "" && lastResult !== null) {
+          output = lastResult.toString();
+        }
+        if (output !== "" && output !== "Error") {
+          if (specialChars.includes(output.slice(-1))) {
+            output = output.slice(0, -1);
+          }
+          output += btnValue;
+          newNumber = false;
+          lastOperator = btnValue;
+        }
+    }
+  }
+
+  display.value = output || "0";
 };
 
 // Add event listener to buttons, call calculate() on click.
@@ -59,18 +83,30 @@ buttons.forEach((button) => {
 // Keyboard support
 document.addEventListener("keydown", (event) => {
   const key = event.key;
+  const validKeys = {
+    0: "0",
+    1: "1",
+    2: "2",
+    3: "3",
+    4: "4",
+    5: "5",
+    6: "6",
+    7: "7",
+    8: "8",
+    9: "9",
+    ".": ".",
+    "+": "+",
+    "-": "-",
+    "*": "*",
+    "/": "/",
+    "%": "%",
+    Enter: "=",
+    Backspace: "DEL",
+    Escape: "AC",
+  };
 
-  if (key >= "0" && key <= "9") {
-    calculate(key); // Number input
-  } else if (key === ".") {
-    calculate("."); // Decimal point
-  } else if (key === "+" || key === "-" || key === "*" || key === "/" || key === "%") {
-    calculate(key); // Operator input
-  } else if (key === "Enter") {
-    calculate("="); // Equals
-  } else if (key === "Backspace") {
-    calculate("DEL"); // Delete
-  } else if (key === "Escape") {
-    calculate("AC"); // Clear all
+  if (validKeys.hasOwnProperty(key)) {
+    calculate(validKeys[key]);
+    event.preventDefault();
   }
 });
