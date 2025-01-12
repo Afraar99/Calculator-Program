@@ -1,243 +1,146 @@
-/* Reset and Basic Styling */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Roboto', sans-serif;
 }
 
-/* Body Styling */
 body {
-  height: 100vh;
+  min-height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, #6a11cb, #2575fc);
-  font-size: 16px;
-  overflow: hidden;
-  font-family: "Roboto", sans-serif;
-  background-color: #f4f4f9;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+  background: linear-gradient(45deg, #2b3760, #1a1f35);
 }
 
-/* Container Styling */
 .container {
-  max-width: 340px;
+  backdrop-filter: blur(16px) saturate(180%);
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  max-width: 400px;
   width: 100%;
-  border-radius: 12px;
-  padding: 15px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  text-align: center;
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  text-align: center;
 }
 
-/* Heading Styling */
 .heading {
-  font-size: 32px;
   color: #fff;
+  text-align: center;
   margin-bottom: 20px;
-  font-weight: 600;
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
-  font-size: 2em;
-  margin-bottom: 20px;
-  color: #333333;
+  font-size: 2rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-/* Display Styling */
 .display {
   width: 100%;
   height: 80px;
-  text-align: right;
-  padding: 15px;
-  font-size: 28px;
   border: none;
-  border-radius: 8px;
-  margin-bottom: 15px;
-  background: rgba(255, 255, 255, 0.25);
-  color: #333333;
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
-  pointer-events: none;
-  transition: all 0.3s ease;
-  width: 100%;
-  padding: 15px;
-  font-size: 1.5em;
-  margin-bottom: 20px;
-  border: 1px solid #cccccc;
-  border-radius: 5px;
+  outline: none;
+  padding: 16px;
+  font-size: 32px;
   text-align: right;
-  background-color: #f9f9f9;
+  border-radius: 12px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+  margin-bottom: 20px;
 }
 
-/* Buttons Grid */
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 12px;
-  transition: all 0.3s ease;
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 10px;
-}
-
-/* Button Styling */
-.buttons button {
-  height: 60px;
-  border: none;
-  border-radius: 12px;
-  font-size: 22px;
-  cursor: pointer;
-  background: rgba(255, 255, 255, 0.2);
-  color: #333333;
-  transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
 }
 
 button {
-  padding: 20px;
-  font-size: 1.2em;
+  padding: 16px;
+  border-radius: 12px;
   border: none;
-  border-radius: 5px;
+  font-size: 20px;
   cursor: pointer;
-  transition: background-color 0.3s;
-  color: #333333;
-}
-
-/* Button Hover & Active Effects */
-.buttons button:hover {
-  background: rgba(255, 255, 255, 0.4);
-  transform: scale(1.05);
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  transition: all 0.2s ease;
 }
 
 button:hover {
-  background-color: #e0e0e0;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
 }
 
-.buttons button:active {
-  transform: scale(0.95);
-}
-
-/* Specific Button Styles */
-.ac {
-  background: #e53935; /* Red */
-  color: white;
-}
-
-.ac:hover {
-  background: #d32f2f;
-}
-
-.del {
-  background: #fb8c00; /* Orange */
-  color: white;
-}
-
-.del:hover {
-  background: #f57c00;
+button:active {
+  transform: translateY(0);
 }
 
 .operator {
-  background: #3949ab; /* Blue */
-  color: white;
+  background: rgba(255, 165, 0, 0.2);
 }
 
 .operator:hover {
-  background: #303f9f;
-}
-
-button.operator {
-  background-color: #ff9500;
-  color: #ffffff;
-}
-
-button.operator:hover {
-  background-color: #e08900;
+  background: rgba(255, 165, 0, 0.3);
 }
 
 .equals {
-  background: #43a047; /* Green */
-  color: white;
+  background: rgba(0, 255, 127, 0.2);
 }
 
 .equals:hover {
-  background: #388e3c;
+  background: rgba(0, 255, 127, 0.3);
 }
 
-button.equals {
-  background-color: #34c759;
-  color: #ffffff;
+.ac {
+  background: rgba(255, 69, 0, 0.2);
 }
 
-button.equals:hover {
-  background-color: #2fa94f;
+.ac:hover {
+  background: rgba(255, 69, 0, 0.3);
 }
 
-/* Footer Styling */
+.del {
+  background: rgba(255, 69, 0, 0.2);
+}
+
+.del:hover {
+  background: rgba(255, 69, 0, 0.3);
+}
+
 footer {
   margin-top: 20px;
-  font-size: 14px;
+  text-align: center;
   color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-top: 20px;
-}
-
-footer a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-footer a:hover {
-  text-decoration: underline;
 }
 
 footer p {
-  margin: 0;
-  color: #666666;
+  margin-bottom: 10px;
 }
 
 .github-logo {
   width: 30px;
-  height: auto; /* Maintain aspect ratio */
-  margin-left: 10px;
-  vertical-align: middle;
-  transition: transform 0.3s ease;
-  margin-top: 10px;
+  height: 30px;
+  transition: transform 0.2s ease;
 }
 
 .github-logo:hover {
-  transform: scale(1.2);
+  transform: scale(1.1);
 }
 
-/* Responsive Design */
-@media (max-width: 375px) {
+@media (max-width: 480px) {
   .container {
-    padding: 10px;
-    max-width: 100%;
-  }
-
-  .heading {
-    font-size: 28px;
+    padding: 15px;
+    margin: 15px;
   }
 
   .display {
+    height: 60px;
     font-size: 24px;
-    height: 70px;
   }
 
-  .buttons button {
+  button {
+    padding: 12px;
     font-size: 18px;
+  }
+
+  .heading {
+    font-size: 1.5rem;
   }
 }
