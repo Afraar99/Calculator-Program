@@ -1,8 +1,48 @@
+:root {
+  --bg-gradient: linear-gradient(45deg, #2b3760, #1a1f35);
+  --container-bg: rgba(255, 255, 255, 0.1);
+  --text-color: #fff;
+  --button-bg: rgba(255, 255, 255, 0.1);
+  --shadow-color: rgba(31, 38, 135, 0.37);
+  --display-bg: rgba(0, 0, 0, 0.8);
+  --display-text: #fff;
+}
+
+.light-theme {
+  --bg-gradient: linear-gradient(45deg, #e0e0e0, #ffffff);
+  --container-bg: rgba(0, 0, 0, 0.1);
+  --text-color: #000;
+  --button-bg: rgba(0, 0, 0, 0.1);
+  --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Add theme toggle styles */
+.theme-toggle {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 2px solid var(--text-color);
+  background: transparent;
+  color: var(--text-color);
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Update existing styles to use variables */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
 
 body {
@@ -10,22 +50,23 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(45deg, #2b3760, #1a1f35);
+  background: var(--bg-gradient);
+  transition: all 0.3s ease;
 }
 
 .container {
   backdrop-filter: blur(16px) saturate(180%);
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: var(--container-bg);
   border-radius: 20px;
   padding: 25px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  box-shadow: 0 8px 32px 0 var(--shadow-color);
   border: 1px solid rgba(255, 255, 255, 0.18);
   max-width: 400px;
   width: 100%;
 }
 
 .heading {
-  color: #fff;
+  color: var(--text-color);
   text-align: center;
   margin-bottom: 20px;
   font-size: 2rem;
@@ -41,9 +82,16 @@ body {
   font-size: 32px;
   text-align: right;
   border-radius: 12px;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
+  color: var(--display-text);
+  background: var(--display-bg);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
   margin-bottom: 20px;
+}
+
+.light-theme .display {
+  background: var(--display-bg);
+  color: var(--display-text);
 }
 
 .buttons {
@@ -58,8 +106,8 @@ button {
   border: none;
   font-size: 20px;
   cursor: pointer;
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--button-bg);
+  color: var(--text-color);
   transition: all 0.2s ease;
 }
 
@@ -88,18 +136,20 @@ button:active {
   background: rgba(46, 204, 113, 0.6);
 }
 
-.ac, .del {
+.ac,
+.del {
   background: rgba(231, 76, 60, 0.4);
 }
 
-.ac:hover, .del:hover {
+.ac:hover,
+.del:hover {
   background: rgba(231, 76, 60, 0.6);
 }
 
 footer {
   margin-top: 20px;
   text-align: center;
-  color: #fff;
+  color: var(--text-color);
 }
 
 footer p {
