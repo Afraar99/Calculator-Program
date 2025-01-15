@@ -1,4 +1,29 @@
+const themeToggle = document.getElementById('theme-toggle');
+const body = document.body;
 const display = document.querySelector(".display");
+
+// Check for saved theme preference
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme === 'light') {
+  body.classList.add('light-theme');
+  themeToggle.textContent = '☀️';
+}
+
+// Theme toggle functionality
+themeToggle.addEventListener('click', () => {
+  // Store current display value
+  const currentValue = display.value;
+  
+  // Toggle theme
+  body.classList.toggle('light-theme');
+  const isLight = body.classList.contains('light-theme');
+  themeToggle.textContent = isLight ? '☀️' : '🌙';
+  localStorage.setItem('theme', isLight ? 'light' : 'dark');
+  
+  // Restore display value
+  display.value = currentValue;
+});
+
 const buttons = document.querySelectorAll("button");
 const specialChars = ["%", "*", "/", "-", "+", "="];
 let output = "";
