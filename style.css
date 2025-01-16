@@ -1,19 +1,22 @@
 :root {
-  --bg-gradient: linear-gradient(45deg, #2b3760, #1a1f35);
+  --bg-gradient: linear-gradient(135deg, #1e3c72, #2a5298);
   --container-bg: rgba(255, 255, 255, 0.1);
   --text-color: #fff;
-  --button-bg: rgba(255, 255, 255, 0.1);
-  --shadow-color: rgba(31, 38, 135, 0.37);
-  --display-bg: rgba(0, 0, 0, 0.8);
-  --display-text: #fff;
+  --button-bg: rgba(255, 255, 255, 0.15);
+  --button-hover: rgba(255, 255, 255, 0.25);
+  --display-bg: rgba(0, 0, 0, 0.3);
+  --operator-bg: rgba(255, 166, 0, 0.3);
+  --equals-bg: rgba(72, 199, 142, 0.3);
+  --ac-del-bg: rgba(255, 69, 58, 0.3);
 }
 
 .light-theme {
-  --bg-gradient: linear-gradient(45deg, #e0e0e0, #ffffff);
-  --container-bg: rgba(0, 0, 0, 0.1);
-  --text-color: #000;
-  --button-bg: rgba(0, 0, 0, 0.1);
-  --shadow-color: rgba(0, 0, 0, 0.1);
+  --bg-gradient: linear-gradient(135deg, #f6f9fc, #e9ecef);
+  --container-bg: rgba(255, 255, 255, 0.7);
+  --text-color: #2d3436;
+  --button-bg: rgba(255, 255, 255, 0.7);
+  --button-hover: rgba(255, 255, 255, 0.9);
+  --display-bg: rgba(255, 255, 255, 0.9);
 }
 
 /* Add theme toggle styles */
@@ -21,15 +24,14 @@
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
+  width: 60px;
+  height: 60px;
   border-radius: 50%;
-  border: 2px solid var(--text-color);
-  background: transparent;
-  color: var(--text-color);
-  font-size: 24px;
+  background: var(--button-bg);
+  backdrop-filter: blur(8px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  font-size: 28px;
   cursor: pointer;
-  z-index: 1000;
   transition: all 0.3s ease;
 }
 
@@ -52,16 +54,17 @@ body {
   justify-content: center;
   background: var(--bg-gradient);
   transition: all 0.3s ease;
+  font-family: "Roboto", sans-serif;
 }
 
 .container {
-  backdrop-filter: blur(16px) saturate(180%);
-  background-color: var(--container-bg);
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 8px 32px 0 var(--shadow-color);
+  backdrop-filter: blur(16px);
+  background: var(--container-bg);
+  border-radius: 24px;
+  padding: 30px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.18);
-  max-width: 400px;
+  max-width: 380px;
   width: 100%;
 }
 
@@ -75,18 +78,18 @@ body {
 
 .display {
   width: 100%;
-  height: 80px;
+  height: 90px;
   border: none;
   outline: none;
-  padding: 16px;
-  font-size: 32px;
+  padding: 20px;
+  font-size: 36px;
   text-align: right;
-  border-radius: 12px;
-  color: var(--display-text);
+  border-radius: 16px;
+  color: var(--text-color);
   background: var(--display-bg);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.2);
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  backdrop-filter: blur(8px);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .light-theme .display {
@@ -97,22 +100,24 @@ body {
 .buttons {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 12px;
+  gap: 15px;
 }
 
 button {
-  padding: 16px;
-  border-radius: 12px;
+  padding: 20px;
+  border-radius: 16px;
   border: none;
   font-size: 20px;
+  font-weight: 500;
   cursor: pointer;
   background: var(--button-bg);
   color: var(--text-color);
+  backdrop-filter: blur(8px);
   transition: all 0.2s ease;
 }
 
 button:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: var(--button-hover);
   transform: translateY(-2px);
 }
 
@@ -121,29 +126,19 @@ button:active {
 }
 
 .operator {
-  background: rgba(255, 140, 0, 0.4);
-}
-
-.operator:hover {
-  background: rgba(255, 140, 0, 0.6);
+  background: var(--operator-bg);
+  font-weight: 600;
 }
 
 .equals {
-  background: rgba(46, 204, 113, 0.4);
-}
-
-.equals:hover {
-  background: rgba(46, 204, 113, 0.6);
+  background: var(--equals-bg);
+  font-weight: 600;
 }
 
 .ac,
 .del {
-  background: rgba(231, 76, 60, 0.4);
-}
-
-.ac:hover,
-.del:hover {
-  background: rgba(231, 76, 60, 0.6);
+  background: var(--ac-del-bg);
+  font-weight: 600;
 }
 
 footer {
