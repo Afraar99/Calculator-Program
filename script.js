@@ -5,23 +5,23 @@ const display = document.querySelector(".display");
 // Check for saved theme preference
 const savedTheme = localStorage.getItem('theme');
 if (savedTheme === 'light') {
-  body.classList.add('light-theme');
-  themeToggle.textContent = '☀️';
+    body.classList.add('light-theme');
+    themeToggle.textContent = '☀️';
 }
 
 // Theme toggle functionality
 themeToggle.addEventListener('click', () => {
-  // Store current display value
-  const currentValue = display.value;
-  
-  // Toggle theme
-  body.classList.toggle('light-theme');
-  const isLight = body.classList.contains('light-theme');
-  themeToggle.textContent = isLight ? '☀️' : '🌙';
-  localStorage.setItem('theme', isLight ? 'light' : 'dark');
-  
-  // Restore display value
-  display.value = currentValue;
+    // Store current display value, ensuring it's not undefined
+    const currentValue = display.value || "0";
+    
+    // Toggle theme
+    body.classList.toggle('light-theme');
+    const isLight = body.classList.contains('light-theme');
+    themeToggle.textContent = isLight ? '☀️' : '🌙';
+    localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    
+    // Restore display value, ensuring it matches the current calculation state
+    display.value = output || currentValue;
 });
 
 const buttons = document.querySelectorAll("button");
